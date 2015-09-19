@@ -1,0 +1,6 @@
+ FB.login(function(response) {
+   // handle the response
+ }, {
+   scope: 'publish_profile,email,user_likes', 
+   return_scopes: true
+ });
