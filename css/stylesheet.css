@@ -1,5 +1,16 @@
-#test {
+body {
     width: 500px;
     height: 500px;
+}
 
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+#groups{
+    width: 200px;
+    height: 75px;
+    background-color: blue;
 }
