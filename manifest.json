@@ -7,7 +7,7 @@
   "description": "FaceBook stuff yo!",
 
   "browser_action": {
-    "default_icon": "images/fb_128px.png",
+    "default_icon": "./images/fb_128px.png",
     "default_popup": "index.html"
   },
 
@@ -17,16 +17,16 @@
     "128": "./images/fb_128px.png"
   },
 
-  "background":{
-    "persistent": false
+//  "background":{
+//    "persistent": false
 //    "scripts": ["./scripts/main.js"]
-  },
+//  },
   
-  "content_scripts": [{
+//  "content_scripts": [{
 //        "matches": ["<all_urls>"],
 //        "js": ["./scripts/mouselocation.js"],
 //        "run_at": "document_start"
-  }],
+//  }],
 
   "permissions": [
     "contextMenus",
