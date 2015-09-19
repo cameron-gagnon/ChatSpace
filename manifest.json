@@ -7,25 +7,25 @@
   "description": "FaceBook stuff yo!",
 
   "browser_action": {
-    "default_icon": "images/mathemorphosis_icon_active_512px.png",
+    "default_icon": "images/fb_128px.png",
     "default_popup": "index.html"
   },
 
   "icons": {
-    "16": "./images/xsquared_active_16px.png",
-    "48": "./images/xsquared_active_48px.png",
-    "128": "./images/xsquared_active_128px.png"
+    "16": "./images/fb_16px.png",
+    "48": "./images/fb_48px.png",
+    "128": "./images/fb_128px.png"
   },
 
   "background":{
     "persistent": false,
-    "scripts": ["./scripts/main.js"]
+//    "scripts": ["./scripts/main.js"]
   },
   
   "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["./scripts/mouselocation.js"],
-        "run_at": "document_start"
+//        "matches": ["<all_urls>"],
+//        "js": ["./scripts/mouselocation.js"],
+//        "run_at": "document_start"
   }],
 
   "permissions": [
