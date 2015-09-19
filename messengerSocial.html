@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+  <body>
+    <div id='messagesDiv'></div>
+
+    <!-- 
+
+    <div id='messagesDiv'></div>
+
+
+
+
+
+     -->
+    
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'>
+    <!-- <input type='text' id='bioInput' placeholder='Bio'>
+    <input type='text' id='instaInput' placeholder='Insta'>
+    <input type='text' id='linkedinInput' placeholder='LK'>
+    <input type='text' id='githubInput' placeholder='Git'> -->
+		<button type='button' id='submitInput' placeholder='Git' > Submit</button>
+
+
+    <script>
+      var myDataRef = new Firebase('https://anxoxebe2vm.firebaseio-demo.com/');
+
+      $('#submitInput').click(sendMessage);
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+        	sendMessage()
+        }
+      });
+
+
+    function sendMessage() {
+					var name = $('#nameInput').val() || "";
+					var message = $('#messageInput').val() || "";
+					myDataRef.child('Chat 1').push({name: name, message: message});
+					
+          // myDataRef.push({name: name, bio: bio, instaLink: insta,linkedin: linkeidn, github: github, message: message });
+          $('#messageInput').val('');
+    }
+
+    function updateProfile() {
+    			var name = $('#nameInput').val() || "";
+         	var bio = $('#bioInput').val() || "";
+					var insta = $('#instaInput').val() || "";
+					var linkedin = $('#linkedinInput').val() || "";
+					var github = $('#githubInput').val() || "";
+
+					myDataRef.child('Users').child(name).set({name: name, bio: bio, instaLink: insta,linkedin: linkedin, github: github});
+    }
+
+    function getProfile(name, cb) {
+    	myDataRef.child('Users').child(name).once("value", cb);
+    }
+
+
+
+      <!-- //Chat Room in Social = Chat 1 -->
+
+      myDataRef.child('Chat 1').on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        getProfile(message.name, function (profileSnapshot) {
+        	console.log(profileSnapshot.val());
+        	displayChatMessage(message.name, message.message, profileSnapshot.val());
+        })
+      });
+
+      function displayChatMessage(name, text, profile) {
+        $('<div/>').text(text).prepend($('<em/>').addClass('class1').html('<br> <br> (<b class="insta">instagram</b>: ' + profile.instaLink + ') <b> '+name+':</b> <br>')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+
+
+      <!-- Profile page --> 
+
+      // myDataRef.on('child_added', function(snapshot) {
+      //   var message = snapshot.val();
+      //   displayChatMessage(message.name, message.bio, message.instaLink, message.linkedin, message.github);
+      // });
+      // function displayChatMessage(name, text, insta, linkedin, github) {
+      //   $('<div/>').text(text).prepend($('<em/>').html('<br> <br> <b>'+name+'</b>: <br> instagram: '+ insta +' '+ linkedin+ ' <br>Github:'+github)).appendTo($('#messagesDiv'));
+      //   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      // };
+
+
+
+    </script>
+  </body>
+</html>
