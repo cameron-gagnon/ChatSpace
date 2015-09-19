@@ -22,6 +22,14 @@ function loginfacebook(callback) {
   
           chrome.windows.remove(popupWindow.id);
           callback();
+          FB.api(
+            '/user_id/groups',
+            'GET',
+            {},
+            function(response) {
+                console.log(response);// Insert your code here
+          });
+
       });
     });
   });

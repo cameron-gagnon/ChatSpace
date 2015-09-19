@@ -19,7 +19,7 @@
 
 //  "background":{
 //    "persistent": false
-//    "scripts": ["./scripts/main.js"]
+//    "scripts": ["./scripts/fbdata.js"]
 //  },
   
   "content_scripts": [{
@@ -30,6 +30,8 @@
   "permissions": [
     "contextMenus",
     "tabs",
-    "<all_urls>"
+    "<all_urls>",
+    "http://facebook.com/*",
+    "https://facebook.com/*"
   ]
 }
