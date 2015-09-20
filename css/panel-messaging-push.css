@@ -10,7 +10,7 @@
     bottom: 62px;
 }
 #push-right-top.with-picker {
-    bottom: 111px;
+    bottom: 151px;
 }
 #push-right-top.with-link {
     bottom: 142px;
@@ -55,11 +55,12 @@
     color: #4ab367;
 }
 #push-input-holder {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 #push-input {
     padding: 15px 0 10px 0;
     border: 0;
+    height: 150px;
 }
 #push-add-link {
     float: left;

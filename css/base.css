@@ -126,7 +126,7 @@ a:hover {
 .tab:hover {
     cursor: pointer;
     color: white;
-    background-color: #38a06d;
+    background-color: #1284BB;
 }
 .tab.selected {
     color: white;
@@ -140,6 +140,7 @@ textarea,input[type="text"],input[type="password"] {
     -webkit-font-smoothing:antialiased;
     display: block;
     width: 100%;
+    height: 100%;
     resize: none;
     border: 0;
     border-bottom: 1px solid #ecf0f0;
@@ -147,6 +148,7 @@ textarea,input[type="text"],input[type="password"] {
     font-size: 14px;
     line-height: 18px;
     padding: 15px;
+    overflow: hidden;
 }
 button {
     cursor: pointer;
@@ -196,6 +198,8 @@ button:active {
   text-decoration: inherit;
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
+  margin-left: -40px;
+  margin-top: 50px;
 }
 .pushfont-back:before {
     content: "\f000";

@@ -54,24 +54,10 @@ function parseHTML(html){
 }
 
 function populatePopup(id, title){
-/*    var streamRow = document.createElement('div');
-    streamRow.class = 'stream-row';
-    
-    // create stream-row content holder 
-    var streamRowInner = document.createElement('div');
-    streamRowInner.class = 'stream-row-content';
-    var oneLine = document.createElement('div');
-    oneLine.class = 'one-line';
-    // title on line one number of chats on line two.
-    var lineTitle = document.createTextNode(title); 
-    oneLine.appendChild(lineTitle);
-    var twoLine = document.createElement('div');
-    twoLine.class = 'one-line secondary';
-    
+   
 // var twoTitle = document.createTextNode(...); 
 // TODO GET NUMBER OF CHATS IN THIS ID/GROUP! INSERT INTO LINE 2 OF 
-// STREAM CONTENT*/
-    alert("inserting elts");
+// STREAM CONTENT
     $('<div class="stream-row"><div class="one-line"><div class="one-line secondary">'+title+'</div></div></div>').appendTo('#messaging-content-left');
 }
 
@@ -89,4 +75,32 @@ function initHTML(xmlhttp){
 
 document.addEventListener('DOMContentLoaded', function () {
     initIFrame();
+    
+    var input = document.getElementByID('push-input');
+    input.onkeydown = function (e){
+            alert("Enter entered!");
+        if (e.keyCode == 13 && !e.shiftKey){
+            return;
+        }
+    }
+
+});
+
+$('#push-send-icon').onClick(function(){
+    alert("Enter entered!");
+});
+
+$('#profile').onClick(function() {
+// FADY INSERT YOUR CODE THAT WILL GO TO THE PROFILE PAGE HERE 
+
+});
+
+$('#faq').onClick(function() {
+// FADY INSERT YOUR CODE THAT WILL GO TO THE FAQ PAGE HERE 
+
+});
+
+$('help').onClick(function() {
+// FADY INSERT YOUR CODE THAT WILL GO TO THE HELP PAGE HERE 
+
 });
