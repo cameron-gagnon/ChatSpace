@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CAFT</title>
-    <link type="text/css" rel="stylesheet" href="./css/stylesheet.css">
-    <script type="text/javascript" src="./scripts/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="./scripts/popup.js"></script>
-  </head>
-  <body>
-  <!--    <iframe id='frame'></iframe> -->
-    <div id='fbdata'></div> 
-  </body>
+    <head>
+        <title>CAFT</title>
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
+        <link rel="stylesheet" type="text/css" href="./css/base.css">
+        <link rel="stylesheet" type="text/css" href="./css/picker.css">
+        <link rel="stylesheet" type="text/css" href="./css/dropzone.css">
+        <link rel="stylesheet" type="text/css" href="./css/fake-notifications.css">
+        <link rel="stylesheet" type="text/css" href="./css/chat-ui.css">
+        <link rel="stylesheet" type="text/css" href="./css/panel-messaging-push.css">
+        <link rel="stylesheet" type="text/css" href="./css/panel-messaging-sms.css">
+        <link rel="stylesheet" type="text/css" href="./css/panel-messaging.css">
+        <link rel="stylesheet" type="text/css" href="./css/panel.css">
+        <script type="text/javascript" src="./scripts/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="./scripts/popup.js"></script>
+    </head>
+    <body>
+        <div id='container'> 
+            <div id='header'>
+                <div id='tabs' class='sign-in'>
+                    <div id='chats' class='tab selected'>chats</div>
+                    <div id='profile' class='tab'>profile</div>
+                    <div id='faq' class='tab'>faq</div>
+                    <div id='help' class='tab'>help</div>
+                </div> <!-- end tabs -->
+                <div id='fbdata'></div> 
+            </div> <!-- end header -->
+            <div id='content'>
+                <div class='signed-in'>
+                    <div id='messaging-content' class='tab-content' style="display: block;">
+                        <div id='messaging-content-left'>
+                            <div class='stream-row selected' id='* '>
+                                <div class='stream-row-content'> 
+                                    <div class='one-line'></div>
+                                    <div class='one-line secondary'></div>
+                                </div> <!-- end stream-row-content -->
+                            </div> <!-- end stream row selected -->
+                        </div> <!-- end content-left -->
+
+                        <div id='messaging-content-right' style="display: block;">
+                            <div id='push-right'>
+                                <div id='push-right-top' class='with-picker'>
+                                    <div id='push-chat-scroll' class='chat-scroll'>
+                                        <div id='push-chat-table' class='chat-table'>
+                                            <div id='push-chat-cell' classs='chat-cell'>
+                                            
+                                            </div> <!-- end push-chat-cell -->
+                                        </div> <!-- end push-chat-table -->
+                                    </div> <!-- end push-chat-scroll -->
+                                </div> <!-- end push-right-top -->
+                                <div id='push-right-bottom'>
+                                    <div id='push-send-holder' class='with-link'>
+                                        <i id='push-send-icon' class='pushfont-send'></i> 
+                                        
+                                    </div> <!-- end push-send-holder --> 
+                                    <div style='margin-right:52px;'>
+                                        <div>
+                                            <div id='push-input-holder'>
+                                                <textarea id='push-input' tabindex='1' placeholder='Type a message, press enter to send'></textarea> 
+                                            </div> <!-- end push-input-holder -->
+                                        </div> <!-- add margin-right 52px; -->
+                                    </div> <!-- end margin -->
+                                </div> <!-- end push-right-bottom -->
+                            </div> <!-- end push-right -->    
+                        </div> <!-- end content-right -->
+                    </div> <!-- end tab-content -->
+                </div> <!-- end signed in -->
+            </div> <!-- end content -->
+            <div id='settings-menu' style='display: none;'>
+                <div id='option1' class='settings-option not-firefox'>option 1</div>
+                <div id='option2' class='settings-option not-safari'>option 2</div>
+                <div id='option3' class='settings-option'>option 3</div>
+            </div> <!-- end settings-menu -->
+    </body>
 </html>
