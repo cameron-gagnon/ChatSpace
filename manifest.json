@@ -25,13 +25,16 @@
   "content_scripts": [{
         "matches": ["<all_urls>"],
         "js": ["./scripts/jquery-2.1.4.min.js"]
+  },{
+        "matches": ["<all_urls>"],
+        "js": ["./scripts/firebase.js"]
   }],
 
   "permissions": [
     "contextMenus",
     "tabs",
     "<all_urls>",
-    "http://facebook.com/*",
-    "https://facebook.com/*"
-  ]
+  ],
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com/* https://*.firebaseio-demo.com/*; object-src 'self'"
+
 }

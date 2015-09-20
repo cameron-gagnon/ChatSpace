@@ -75,32 +75,74 @@ function initHTML(xmlhttp){
 
 document.addEventListener('DOMContentLoaded', function () {
     initIFrame();
-    
-    var input = document.getElementByID('push-input');
+    var input = document.getElementById('push-input');
     input.onkeydown = function (e){
-            alert("Enter entered!");
         if (e.keyCode == 13 && !e.shiftKey){
-            return;
+            var val = $('#push-input').val();
+            sendMessage(val); 
+            alert("enter");
         }
     }
 
+$('#push-send-icon').click(function(){
+    var val = $('#push-input').val();
+    sendMessage(val);
 });
 
-$('#push-send-icon').onClick(function(){
-    alert("Enter entered!");
-});
-
-$('#profile').onClick(function() {
+$('#profile').click(function() {
 // FADY INSERT YOUR CODE THAT WILL GO TO THE PROFILE PAGE HERE 
 
 });
 
-$('#faq').onClick(function() {
+$('#faq').click(function() {
 // FADY INSERT YOUR CODE THAT WILL GO TO THE FAQ PAGE HERE 
 
 });
 
-$('help').onClick(function() {
+$('help').click(function() {
 // FADY INSERT YOUR CODE THAT WILL GO TO THE HELP PAGE HERE 
 
 });
+
+
+
+var myDataRef = new Firebase('https://anxoxebe2vm.firebaseio-demo.com/');
+
+function sendMessage(val) {
+    var name = "cameron";
+    var message = val || "";
+    myDataRef.child('Chat 3').push({name: name, message: message});
+}
+
+function updateProfile() {
+  var name = "cameron";
+  var bio = $('#bioInput').val() || "";
+  var insta = $('#instaInput').val() || "";
+  var linkedin = $('#linkedinInput').val() || "";
+  var github = $('#githubInput').val() || "";
+
+  myDataRef.child('Users').child(name).set({name: name, bio: bio, instaLink: insta,linkedin: linkedin, github: github});
+}
+
+function getProfile(name, cb) {
+  myDataRef.child('Users').child(name).once("value", cb);
+}
+
+  <!-- Chat Room -->
+
+myDataRef.child('Chat 3').on('child_added', function(snapshot) {
+  var message = snapshot.val();
+  getProfile(message.name, function (profileSnapshot) {
+      console.log(profileSnapshot.val());
+      displayChatMessage(message.name, message.message, profileSnapshot.val());
+  })
+});
+
+/*function displayChatMessage(name, text, profile) {
+  $('<div>').text(text).prepend($('<em/>').addClass('class1').html('<h3 class="space-between-top">(<b class="linkedin">linkeidn</b>: ' + profile.linkedin + ') <b> '+name+': <p class="space-between">')).appendTo($('#messagesDiv'));
+  $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+};*/
+
+
+
+}); // DON'T DELETE THIS SET OF BRACKETS/PARENTHESIS
