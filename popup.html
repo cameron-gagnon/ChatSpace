@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>CAFT</title>
-        <link rel="stylesheet" type="text/css" href="./css/index.css">
+        <!--        <link rel="stylesheet" type="text/css" href="./css/index.css"> -->
         <link rel="stylesheet" type="text/css" href="./css/base.css">
         <link rel="stylesheet" type="text/css" href="./css/picker.css">
         <link rel="stylesheet" type="text/css" href="./css/dropzone.css">
@@ -15,7 +15,7 @@
         <script type="text/javascript" src="./scripts/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="./scripts/popup.js"></script>
     </head>
-    <body>
+    <body class='signed-in chrome not-opera not-safari not-firefox not-mac not-windows'>
         <div id='container'> 
             <div id='header'>
                 <div id='tabs' class='sign-in'>
@@ -27,10 +27,10 @@
                 <div id='fbdata'></div> 
             </div> <!-- end header -->
             <div id='content'>
-                <div class='signed-in'>
+                <div class='signed-in' style="height: 100%;">
                     <div id='messaging-content' class='tab-content' style="display: block;">
                         <div id='messaging-content-left'>
-                            <div class='stream-row selected' id='* '>
+                            <div class='stream-row selected' id='*'>
                                 <div class='stream-row-content'> 
                                     <div class='one-line'></div>
                                     <div class='one-line secondary'></div>

@@ -54,12 +54,25 @@ function parseHTML(html){
 }
 
 function populatePopup(id, title){
-    var fb = document.createElement('div');
-    var text = document.createTextNode(title);
-    fb.id = 'groups';
-    fb.appendChild(text); // add text node
-    var parentDiv = document.getElementById('parent');
-    document.body.insertBefore(fb, parentDiv);
+/*    var streamRow = document.createElement('div');
+    streamRow.class = 'stream-row';
+    
+    // create stream-row content holder 
+    var streamRowInner = document.createElement('div');
+    streamRowInner.class = 'stream-row-content';
+    var oneLine = document.createElement('div');
+    oneLine.class = 'one-line';
+    // title on line one number of chats on line two.
+    var lineTitle = document.createTextNode(title); 
+    oneLine.appendChild(lineTitle);
+    var twoLine = document.createElement('div');
+    twoLine.class = 'one-line secondary';
+    
+// var twoTitle = document.createTextNode(...); 
+// TODO GET NUMBER OF CHATS IN THIS ID/GROUP! INSERT INTO LINE 2 OF 
+// STREAM CONTENT*/
+    alert("inserting elts");
+    $('<div class="stream-row"><div class="one-line"><div class="one-line secondary">'+title+'</div></div></div>').appendTo('#messaging-content-left');
 }
 
 function initHTML(xmlhttp){
@@ -68,19 +81,11 @@ function initHTML(xmlhttp){
     var ids = data[0];
     var titles = data[1];
     var x;
-    var parentDiv = document.createElement('div');
-    parentDiv.id = 'parent';
 
     for (x in ids){
         populatePopup(ids[x], titles[x]);
     }
-    
-    var grandParent = document.getElementById('fbdata');
-    document.body.insertBefore(parentDiv, grandParent);
-
 }
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     initIFrame();
