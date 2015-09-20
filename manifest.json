@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 {
   "manifest_version": 2,
   "name": "CAFT",
@@ -36,45 +35,3 @@
     "https://facebook.com/*"
   ]
 }
-=======
-{
-  /// test by amy
-  "manifest_version": 2,
-  "name": "YakBook",
-  "version": "1.0",
-
-  "description": "FaceBook stuff yo!",
-
-  "browser_action": {
-    "default_icon": "./images/fb_128px.png",
-    "default_popup": "index.html"
-  },
-
-  "icons": {
-    "16": "./images/fb_16px.png",
-    "48": "./images/fb_48px.png",
-    "128": "./images/fb_128px.png"
-  },
-
-//  "background":{
-//    "persistent": false
-//    "scripts": ["./scripts/main.js"]
-//  },
-  
-//  "content_scripts": [{
-//        "matches": ["<all_urls>"],
-//        "js": ["./scripts/mouselocation.js"],
-//        "run_at": "document_start"
-//  }],
-
-  "permissions": [
-    "contextMenus",
-    "tabs",
-    // for context_scripts to get mouse position to locate where the popup.html will go.
-    "<all_urls>"
-  ]
-
-}
-
-//Fadi testing git push 
->>>>>>> Stashed changes
